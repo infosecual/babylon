@@ -67,6 +67,13 @@ require (
 )
 
 require (
+	github.com/infosecual/go-fuzz-fill-utils v0.0.0-20221103190051-ae0bca9854e0 // indirect
+	github.com/infosecual/nosy v0.0.0-20240924164743-6c04c8edd74e // indirect
+	github.com/sanity-io/litter v1.5.5 // indirect
+	github.com/trailofbits/go-fuzz-utils v0.0.0-20240830175354-474de707d2aa // indirect
+)
+
+require (
 	filippo.io/edwards25519 v1.0.0 // indirect
 	github.com/99designs/keyring v1.2.1 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
