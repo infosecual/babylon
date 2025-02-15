@@ -850,7 +850,7 @@ func Fuzz_Nosy_Keeper_Params__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var req *types.QueryParamsRequest
+		var req *btcstakingtypes.QueryParamsRequest
 		fill_err = tp.Fill(&req)
 		if fill_err != nil {
 			return

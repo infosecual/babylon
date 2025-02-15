@@ -789,7 +789,7 @@ func Fuzz_Nosy_Keeper_SetParams__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var p types.Params
+		var p btclctypes.Params
 		fill_err = tp.Fill(&p)
 		if fill_err != nil {
 			return

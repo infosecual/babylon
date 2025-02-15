@@ -6,7 +6,10 @@ import (
 
 	"cosmossdk.io/math"
 	checkpointingtypes "github.com/babylonlabs-io/babylon/x/checkpointing/types"
+	"github.com/babylonlabs-io/babylon/x/epoching/types"
+	epochingtypes "github.com/babylonlabs-io/babylon/x/epoching/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	go_fuzz_utils "github.com/trailofbits/go-fuzz-utils"
 )
 
@@ -276,7 +279,7 @@ func Fuzz_Nosy_Hooks_AfterValidatorBeginUnbonding__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var consAddr types.ConsAddress
+		var consAddr sdk.ConsAddress
 		fill_err = tp.Fill(&consAddr)
 		if fill_err != nil {
 			return
@@ -308,7 +311,7 @@ func Fuzz_Nosy_Hooks_AfterValidatorBonded__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var consAddr types.ConsAddress
+		var consAddr sdk.ConsAddress
 		fill_err = tp.Fill(&consAddr)
 		if fill_err != nil {
 			return
@@ -367,7 +370,7 @@ func Fuzz_Nosy_Hooks_AfterValidatorRemoved__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var consAddr types.ConsAddress
+		var consAddr sdk.ConsAddress
 		fill_err = tp.Fill(&consAddr)
 		if fill_err != nil {
 			return
@@ -684,7 +687,7 @@ func Fuzz_Nosy_Keeper_BeforeSlashThreshold__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var valSet etypes.ValidatorSet
+		var valSet epochingtypes.ValidatorSet
 		fill_err = tp.Fill(&valSet)
 		if fill_err != nil {
 			return
@@ -711,7 +714,7 @@ func Fuzz_Nosy_Keeper_CheckMsgCreateValidator__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msg *types.MsgCreateValidator
+		var msg *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msg)
 		if fill_err != nil {
 			return
@@ -1247,7 +1250,7 @@ func Fuzz_Nosy_Keeper_GetPubKeyByConsAddr__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var consAddr types.ConsAddress
+		var consAddr sdk.ConsAddress
 		fill_err = tp.Fill(&consAddr)
 		if fill_err != nil {
 			return
@@ -1704,7 +1707,7 @@ func Fuzz_Nosy_Keeper_Params__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var req *types.QueryParamsRequest
+		var req *epochingtypes.QueryParamsRequest
 		fill_err = tp.Fill(&req)
 		if fill_err != nil {
 			return
@@ -1912,7 +1915,7 @@ func Fuzz_Nosy_Keeper_SetParams__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var p types.Params
+		var p epochingtypes.Params
 		fill_err = tp.Fill(&p)
 		if fill_err != nil {
 			return
@@ -1974,7 +1977,7 @@ func Fuzz_Nosy_Keeper_StkMsgCreateValidator__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msg *types.MsgCreateValidator
+		var msg *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msg)
 		if fill_err != nil {
 			return

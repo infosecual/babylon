@@ -6,6 +6,7 @@ import (
 
 	"github.com/babylonlabs-io/babylon/btctxformatter"
 	"github.com/babylonlabs-io/babylon/crypto/bls12381"
+	"github.com/babylonlabs-io/babylon/x/checkpointing/types"
 	checkpointingtypes "github.com/babylonlabs-io/babylon/x/checkpointing/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	go_fuzz_utils "github.com/trailofbits/go-fuzz-utils"
@@ -354,7 +355,7 @@ func Fuzz_Nosy_Keeper_BlsPublicKeyList__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var req *types.QueryBlsPublicKeyListRequest
+		var req *checkpointingtypes.QueryBlsPublicKeyListRequest
 		fill_err = tp.Fill(&req)
 		if fill_err != nil {
 			return
@@ -497,7 +498,7 @@ func Fuzz_Nosy_Keeper_EpochStatus__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var req *types.QueryEpochStatusRequest
+		var req *checkpointingtypes.QueryEpochStatusRequest
 		fill_err = tp.Fill(&req)
 		if fill_err != nil {
 			return
@@ -696,7 +697,7 @@ func Fuzz_Nosy_Keeper_GetPubKeyByConsAddr__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var consAddr types.ConsAddress
+		var consAddr sdk.ConsAddress
 		fill_err = tp.Fill(&consAddr)
 		if fill_err != nil {
 			return

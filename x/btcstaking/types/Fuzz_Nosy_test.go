@@ -7,6 +7,7 @@ import (
 	btcstaking2 "github.com/babylonlabs-io/babylon/btcstaking"
 	asig "github.com/babylonlabs-io/babylon/crypto/schnorr-adaptor-signature"
 	bbn "github.com/babylonlabs-io/babylon/types"
+	"github.com/babylonlabs-io/babylon/x/btccheckpoint/types"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
@@ -3363,7 +3364,7 @@ func Fuzz_Nosy_BTCSlashingTx_EncSign__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var encKey *schnorr_adaptor_signature.EncryptionKey
+		var encKey *asig.EncryptionKey
 		fill_err = tp.Fill(&encKey)
 		if fill_err != nil {
 			return
@@ -3404,7 +3405,7 @@ func Fuzz_Nosy_BTCSlashingTx_EncVerifyAdaptorSignature__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var encKey *schnorr_adaptor_signature.EncryptionKey
+		var encKey *asig.EncryptionKey
 		fill_err = tp.Fill(&encKey)
 		if fill_err != nil {
 			return
@@ -3450,7 +3451,7 @@ func Fuzz_Nosy_BTCSlashingTx_EncVerifyAdaptorSignatures__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var valPKs []types.BIP340PubKey
+		var valPKs []bbn.BIP340PubKey
 		fill_err = tp.Fill(&valPKs)
 		if fill_err != nil {
 			return
@@ -3503,7 +3504,7 @@ func Fuzz_Nosy_BTCSlashingTx_ParseEncVerifyAdaptorSignatures__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var valPKs []types.BIP340PubKey
+		var valPKs []bbn.BIP340PubKey
 		fill_err = tp.Fill(&valPKs)
 		if fill_err != nil {
 			return
@@ -28024,7 +28025,7 @@ func Fuzz_Nosy_ExistsDup__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var btcPKs []types.BIP340PubKey
+		var btcPKs []bbn.BIP340PubKey
 		fill_err = tp.Fill(&btcPKs)
 		if fill_err != nil {
 			return
@@ -28216,7 +28217,7 @@ func Fuzz_Nosy_findFPIdxInWitness__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var fpBTCPKs []types.BIP340PubKey
+		var fpBTCPKs []bbn.BIP340PubKey
 		fill_err = tp.Fill(&fpBTCPKs)
 		if fill_err != nil {
 			return

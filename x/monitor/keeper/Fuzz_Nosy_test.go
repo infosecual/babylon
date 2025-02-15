@@ -4,9 +4,8 @@ import (
 	"context"
 	"testing"
 
-	checkpointingtypes "github.com/babylonlabs-io/babylon/x/checkpoint/types"
 	checkpointingtypes "github.com/babylonlabs-io/babylon/x/checkpointing/types"
-	etypes "github.com/babylonlabs-io/babylon/x/epoching/types"
+	epochingtypes "github.com/babylonlabs-io/babylon/x/epoching/types"
 	"github.com/babylonlabs-io/babylon/x/monitor/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	go_fuzz_utils "github.com/trailofbits/go-fuzz-utils"
@@ -271,7 +270,7 @@ func Fuzz_Nosy_Hooks_BeforeSlashThreshold__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var valSet etypes.ValidatorSet
+		var valSet epochingtypes.ValidatorSet
 		fill_err = tp.Fill(&valSet)
 		if fill_err != nil {
 			return

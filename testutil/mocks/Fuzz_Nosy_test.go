@@ -9,8 +9,7 @@ import (
 	epochtypes "github.com/babylonlabs-io/babylon/x/epoching/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	//stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	"github.com/cosmos/cosmos-sdk/x/staking/types"
+	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	gomock "github.com/golang/mock/gomock"
 	go_fuzz_utils "github.com/trailofbits/go-fuzz-utils"
 )
@@ -518,7 +517,7 @@ func Fuzz_Nosy_MockEpochingKeeper_CheckMsgCreateValidator__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msg *types.MsgCreateValidator
+		var msg *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msg)
 		if fill_err != nil {
 			return
@@ -782,7 +781,7 @@ func Fuzz_Nosy_MockEpochingKeeper_StkMsgCreateValidator__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msg *types.MsgCreateValidator
+		var msg *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msg)
 		if fill_err != nil {
 			return

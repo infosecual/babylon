@@ -9,7 +9,7 @@ import (
 	btccheckpointtypes "github.com/babylonlabs-io/babylon/x/btccheckpoint/types"
 	btcctypes "github.com/babylonlabs-io/babylon/x/btccheckpoint/types"
 	btclctypes "github.com/babylonlabs-io/babylon/x/btclightclient/types"
-	etypes "github.com/babylonlabs-io/babylon/x/epoching/types"
+	epochingtypes "github.com/babylonlabs-io/babylon/x/epoching/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	go_fuzz_utils "github.com/trailofbits/go-fuzz-utils"
 )
@@ -220,7 +220,7 @@ func Fuzz_Nosy_Hooks_BeforeSlashThreshold__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var _x3 etypes.ValidatorSet
+		var _x3 epochingtypes.ValidatorSet
 		fill_err = tp.Fill(&_x3)
 		if fill_err != nil {
 			return

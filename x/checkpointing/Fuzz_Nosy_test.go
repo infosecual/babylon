@@ -5,6 +5,9 @@ import (
 	"testing"
 
 	"github.com/babylonlabs-io/babylon/x/checkpointing/keeper"
+	"github.com/babylonlabs-io/babylon/x/checkpointing/types"
+	ckpttypes "github.com/babylonlabs-io/babylon/x/checkpointing/types"
+	abci "github.com/cometbft/cometbft/abci/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
@@ -166,7 +169,7 @@ func Fuzz_Nosy_ProposalHandler_buildCheckpointFromVoteExtensions__(f *testing.F)
 		if fill_err != nil {
 			return
 		}
-		var extendedVotes []types.ExtendedVoteInfo
+		var extendedVotes []abci.ExtendedVoteInfo
 		fill_err = tp.Fill(&extendedVotes)
 		if fill_err != nil {
 			return
@@ -191,7 +194,7 @@ func Fuzz_Nosy_ProposalHandler_buildInjectedTxBytes__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var injectedCkpt *types.MsgInjectedCheckpoint
+		var injectedCkpt *ckpttypes.MsgInjectedCheckpoint
 		fill_err = tp.Fill(&injectedCkpt)
 		if fill_err != nil {
 			return
@@ -216,7 +219,7 @@ func Fuzz_Nosy_ProposalHandler_findLastBlockHash__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var extendedVotes []types.ExtendedVoteInfo
+		var extendedVotes []abci.ExtendedVoteInfo
 		fill_err = tp.Fill(&extendedVotes)
 		if fill_err != nil {
 			return
@@ -246,7 +249,7 @@ func Fuzz_Nosy_ProposalHandler_getValidBlsSigs__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var extendedVotes []types.ExtendedVoteInfo
+		var extendedVotes []abci.ExtendedVoteInfo
 		fill_err = tp.Fill(&extendedVotes)
 		if fill_err != nil {
 			return

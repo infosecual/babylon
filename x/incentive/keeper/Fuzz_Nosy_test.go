@@ -5,6 +5,8 @@ import (
 	"testing"
 
 	"cosmossdk.io/math"
+	finality_types "github.com/babylonlabs-io/babylon/x/finality/types"
+	"github.com/babylonlabs-io/babylon/x/incentive/types"
 	incentive_types "github.com/babylonlabs-io/babylon/x/incentive/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	go_fuzz_utils "github.com/trailofbits/go-fuzz-utils"
@@ -619,7 +621,7 @@ func Fuzz_Nosy_Keeper_Params__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var req *types.QueryParamsRequest
+		var req *incentive_types.QueryParamsRequest
 		fill_err = tp.Fill(&req)
 		if fill_err != nil {
 			return
@@ -683,7 +685,7 @@ func Fuzz_Nosy_Keeper_RewardBTCStaking__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var dc *types.VotingPowerDistCache
+		var dc *finality_types.VotingPowerDistCache
 		fill_err = tp.Fill(&dc)
 		if fill_err != nil {
 			return
@@ -783,7 +785,7 @@ func Fuzz_Nosy_Keeper_SetParams__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var p types.Params
+		var p incentive_types.Params
 		fill_err = tp.Fill(&p)
 		if fill_err != nil {
 			return

@@ -5,6 +5,9 @@ import (
 	"testing"
 
 	bbn "github.com/babylonlabs-io/babylon/types"
+	"github.com/babylonlabs-io/babylon/x/btcstaking/types"
+	bstypes "github.com/babylonlabs-io/babylon/x/btcstaking/types"
+	btcstakingtypes "github.com/babylonlabs-io/babylon/x/btcstaking/types"
 	finality_types "github.com/babylonlabs-io/babylon/x/finality/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	go_fuzz_utils "github.com/trailofbits/go-fuzz-utils"
@@ -1304,7 +1307,7 @@ func Fuzz_Nosy_Keeper_InitGenesis__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var gs types.GenesisState
+		var gs finality_types.GenesisState
 		fill_err = tp.Fill(&gs)
 		if fill_err != nil {
 			return
@@ -1623,12 +1626,12 @@ func Fuzz_Nosy_Keeper_ProcessAllPowerDistUpdateEvents__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var dc *types.VotingPowerDistCache
+		var dc *finality_types.VotingPowerDistCache
 		fill_err = tp.Fill(&dc)
 		if fill_err != nil {
 			return
 		}
-		var events []*types.EventPowerDistUpdate
+		var events []*btcstakingtypes.EventPowerDistUpdate
 		fill_err = tp.Fill(&events)
 		if fill_err != nil {
 			return
@@ -1685,7 +1688,7 @@ func Fuzz_Nosy_Keeper_SetBlock__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var block *types.IndexedBlock
+		var block *finality_types.IndexedBlock
 		fill_err = tp.Fill(&block)
 		if fill_err != nil {
 			return
@@ -1715,7 +1718,7 @@ func Fuzz_Nosy_Keeper_SetEvidence__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var evidence *types.Evidence
+		var evidence *finality_types.Evidence
 		fill_err = tp.Fill(&evidence)
 		if fill_err != nil {
 			return
@@ -1852,7 +1855,7 @@ func Fuzz_Nosy_Keeper_SetParams__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var p types.Params
+		var p finality_types.Params
 		fill_err = tp.Fill(&p)
 		if fill_err != nil {
 			return
@@ -1889,7 +1892,7 @@ func Fuzz_Nosy_Keeper_SetPubRand__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var pubRand types.SchnorrPubRand
+		var pubRand bbn.SchnorrPubRand
 		fill_err = tp.Fill(&pubRand)
 		if fill_err != nil {
 			return
@@ -1924,7 +1927,7 @@ func Fuzz_Nosy_Keeper_SetPubRandCommit__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var prCommit *types.PubRandCommit
+		var prCommit *finality_types.PubRandCommit
 		fill_err = tp.Fill(&prCommit)
 		if fill_err != nil {
 			return
@@ -1964,7 +1967,7 @@ func Fuzz_Nosy_Keeper_SetSig__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var sig *bbn.SchnorrPubRand
+		var sig *bbn.SchnorrEOTSSig
 		fill_err = tp.Fill(&sig)
 		if fill_err != nil {
 			return
@@ -2036,7 +2039,7 @@ func Fuzz_Nosy_Keeper_SetVotingPowerDistCache__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var dc *types.VotingPowerDistCache
+		var dc *finality_types.VotingPowerDistCache
 		fill_err = tp.Fill(&dc)
 		if fill_err != nil {
 			return
@@ -2340,7 +2343,7 @@ func Fuzz_Nosy_Keeper_finalizeBlock__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var block *types.IndexedBlock
+		var block *finality_types.IndexedBlock
 		fill_err = tp.Fill(&block)
 		if fill_err != nil {
 			return
@@ -2479,12 +2482,12 @@ func Fuzz_Nosy_Keeper_handleFPStateUpdates__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var prevDc *types.VotingPowerDistCache
+		var prevDc *finality_types.VotingPowerDistCache
 		fill_err = tp.Fill(&prevDc)
 		if fill_err != nil {
 			return
 		}
-		var newDc *types.VotingPowerDistCache
+		var newDc *finality_types.VotingPowerDistCache
 		fill_err = tp.Fill(&newDc)
 		if fill_err != nil {
 			return
@@ -2739,7 +2742,7 @@ func Fuzz_Nosy_Keeper_recordMetrics__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var dc *types.VotingPowerDistCache
+		var dc *finality_types.VotingPowerDistCache
 		fill_err = tp.Fill(&dc)
 		if fill_err != nil {
 			return
@@ -2769,7 +2772,7 @@ func Fuzz_Nosy_Keeper_recordVotingPowerAndCache__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var newDc *types.VotingPowerDistCache
+		var newDc *finality_types.VotingPowerDistCache
 		fill_err = tp.Fill(&newDc)
 		if fill_err != nil {
 			return
@@ -2880,7 +2883,7 @@ func Fuzz_Nosy_Keeper_slashFinalityProvider__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var evidence *types.Evidence
+		var evidence *finality_types.Evidence
 		fill_err = tp.Fill(&evidence)
 		if fill_err != nil {
 			return
@@ -3204,7 +3207,7 @@ func Fuzz_Nosy_msgServer_ShouldAcceptSigForHeight__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var block *types.IndexedBlock
+		var block *finality_types.IndexedBlock
 		fill_err = tp.Fill(&block)
 		if fill_err != nil {
 			return
@@ -3311,7 +3314,7 @@ func Fuzz_Nosy_convertToActiveFinalityProvidersAtHeightResponse__(f *testing.F) 
 		if fill_err != nil {
 			return
 		}
-		var finalityProvidersWithMeta []*finality_types.FinalityProviderWithMeta
+		var finalityProvidersWithMeta []*bstypes.FinalityProviderWithMeta
 		fill_err = tp.Fill(&finalityProvidersWithMeta)
 		if fill_err != nil {
 			return
@@ -3328,7 +3331,7 @@ func Fuzz_Nosy_convertToEvidenceListResponse__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var evidences []*types.Evidence
+		var evidences []*finality_types.Evidence
 		fill_err = tp.Fill(&evidences)
 		if fill_err != nil {
 			return
@@ -3345,7 +3348,7 @@ func Fuzz_Nosy_convertToSigningInfosResponse__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var signInfos []types.FinalityProviderSigningInfo
+		var signInfos []finality_types.FinalityProviderSigningInfo
 		fill_err = tp.Fill(&signInfos)
 		if fill_err != nil {
 			return

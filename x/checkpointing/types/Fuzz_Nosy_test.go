@@ -4,13 +4,15 @@ import (
 	"context"
 	"testing"
 
-	"cosmossdk.io/x/staking/types"
+	//"cosmossdk.io/x/staking/types"
 	"github.com/babylonlabs-io/babylon/btctxformatter"
 	"github.com/babylonlabs-io/babylon/crypto/bls12381"
+	epochingtypes "github.com/babylonlabs-io/babylon/x/epoching/types"
 	"github.com/boljen/go-bitmap"
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/query"
+	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	go_fuzz_utils "github.com/trailofbits/go-fuzz-utils"
 )
 
@@ -4698,7 +4700,7 @@ func Fuzz_Nosy_MsgWrappedCreateValidator_Descriptor__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msgCreateVal *types.MsgCreateValidator
+		var msgCreateVal *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msgCreateVal)
 		if fill_err != nil {
 			return
@@ -4732,7 +4734,7 @@ func Fuzz_Nosy_MsgWrappedCreateValidator_Marshal__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msgCreateVal *types.MsgCreateValidator
+		var msgCreateVal *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msgCreateVal)
 		if fill_err != nil {
 			return
@@ -4766,7 +4768,7 @@ func Fuzz_Nosy_MsgWrappedCreateValidator_MarshalTo__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msgCreateVal *types.MsgCreateValidator
+		var msgCreateVal *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msgCreateVal)
 		if fill_err != nil {
 			return
@@ -4805,7 +4807,7 @@ func Fuzz_Nosy_MsgWrappedCreateValidator_MarshalToSizedBuffer__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msgCreateVal *types.MsgCreateValidator
+		var msgCreateVal *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msgCreateVal)
 		if fill_err != nil {
 			return
@@ -4844,7 +4846,7 @@ func Fuzz_Nosy_MsgWrappedCreateValidator_ProtoMessage__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msgCreateVal *types.MsgCreateValidator
+		var msgCreateVal *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msgCreateVal)
 		if fill_err != nil {
 			return
@@ -4878,7 +4880,7 @@ func Fuzz_Nosy_MsgWrappedCreateValidator_Reset__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msgCreateVal *types.MsgCreateValidator
+		var msgCreateVal *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msgCreateVal)
 		if fill_err != nil {
 			return
@@ -4912,7 +4914,7 @@ func Fuzz_Nosy_MsgWrappedCreateValidator_Size__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msgCreateVal *types.MsgCreateValidator
+		var msgCreateVal *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msgCreateVal)
 		if fill_err != nil {
 			return
@@ -4946,7 +4948,7 @@ func Fuzz_Nosy_MsgWrappedCreateValidator_String__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msgCreateVal *types.MsgCreateValidator
+		var msgCreateVal *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msgCreateVal)
 		if fill_err != nil {
 			return
@@ -4980,7 +4982,7 @@ func Fuzz_Nosy_MsgWrappedCreateValidator_Unmarshal__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msgCreateVal *types.MsgCreateValidator
+		var msgCreateVal *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msgCreateVal)
 		if fill_err != nil {
 			return
@@ -5019,7 +5021,7 @@ func Fuzz_Nosy_MsgWrappedCreateValidator_ValidateBasic__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msgCreateVal *types.MsgCreateValidator
+		var msgCreateVal *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msgCreateVal)
 		if fill_err != nil {
 			return
@@ -5055,7 +5057,7 @@ func Fuzz_Nosy_MsgWrappedCreateValidator_XXX_DiscardUnknown__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msgCreateVal *types.MsgCreateValidator
+		var msgCreateVal *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msgCreateVal)
 		if fill_err != nil {
 			return
@@ -5089,7 +5091,7 @@ func Fuzz_Nosy_MsgWrappedCreateValidator_XXX_Marshal__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msgCreateVal *types.MsgCreateValidator
+		var msgCreateVal *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msgCreateVal)
 		if fill_err != nil {
 			return
@@ -5135,7 +5137,7 @@ func Fuzz_Nosy_MsgWrappedCreateValidator_XXX_Size__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msgCreateVal *types.MsgCreateValidator
+		var msgCreateVal *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msgCreateVal)
 		if fill_err != nil {
 			return
@@ -5169,7 +5171,7 @@ func Fuzz_Nosy_MsgWrappedCreateValidator_XXX_Unmarshal__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msgCreateVal *types.MsgCreateValidator
+		var msgCreateVal *stakingtypes.MsgCreateValidator
 		fill_err = tp.Fill(&msgCreateVal)
 		if fill_err != nil {
 			return
@@ -10546,7 +10548,7 @@ func Fuzz_Nosy_RawCheckpointWithMeta_Accumulate__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var vals etypes.ValidatorSet
+		var vals epochingtypes.ValidatorSet
 		fill_err = tp.Fill(&vals)
 		if fill_err != nil {
 			return
